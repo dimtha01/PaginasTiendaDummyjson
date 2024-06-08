@@ -39,6 +39,10 @@ Usa el comando git push para enviar tus cambios al repositorio remoto. Por ejemp
 git push -u origin master
 
 
-
+Ahora solo falta configurar GitHub Pages para desplegar la pagina
+1) Setting -> y el la sección Code and automation ->Pages
+2) En la sección Buid and deployment en el botón main seleccionar la rama master que fue la que colocamos en el paso e.
+3) Despues seleccionamos en el siguiente botón /docs lo cambiamos a root y le damos al botosn Save
+Debe salir un mensaje en la parte superior Github Pages source saved.
 
 
