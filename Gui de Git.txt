@@ -1,0 +1,44 @@
+Para subir una actualización de tu proyecto en VS Code a Git, sigue los siguientes pasos:
+
+Inicializa un repositorio de Git en tu proyecto:
+Abre el proyecto en VS Code.
+Ve al menú "View" (Ver) en la parte superior y selecciona "Terminal" (o usa el atajo de teclado Ctrl+ J).
+En la terminal integrada, navega hasta la carpeta raíz de tu proyecto usando el comando cd.
+2. Inicializa el repositorio de Git ejecutando el siguiente comando:
+
+git init
+
+3. Agrega los archivos a la zona de preparación:
+
+Utiliza el comando git add seguido de los nombres de los archivos o carpetas que deseas incluir en la actualización. 
+Por ejemplo, si deseas agregar todos los archivos, puedes usar:
+
+git add .
+
+4. Realiza un commit de los cambios:
+
+Usa el comando git commit -m seguido de un mensaje descriptivo para el commit. Por ejemplo:
+
+git commit -m "Agregando actualización del proyecto"
+
+5. Configura el repositorio remoto:
+
+Si aún no tienes un repositorio remoto configurado, necesitarás hacerlo. Puedes usar servicios populares como GitHub, GitLab o Bitbucket.
+En tu servicio de hospedaje de repositorios, crea un nuevo repositorio vacío. Luego, sigue las instrucciones para agregar un repositorio remoto a tu proyecto.
+Por ejemplo, para agregar un repositorio remoto en GitHub, puedes seguir estos pasos:
+Crea un nuevo repositorio en GitHub.
+Copia la URL del repositorio (por ejemplo, https://github.com/tu-usuario/tu-repositorio.git).
+En la terminal de VS Code, ejecuta el siguiente comando, reemplazando <URL> con la URL de tu repositorio:
+
+git remote add origin <URL>
+
+6.Sube los cambios al repositorio remoto:
+
+Usa el comando git push para enviar tus cambios al repositorio remoto. Por ejemplo:
+
+git push -u origin master
+
+
+
+
+
