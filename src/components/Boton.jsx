@@ -20,7 +20,7 @@ const Boton = () => {
     }, []);
     return (
         <>
-            <div className="d-flex flex-wrap justify-content-center">
+            <div className="d-flex flex-wrap justify-content-center m-4">
                 {datos && datos.map((item, index) => (
                     <Link key={index} className="btn btn-outline-danger m-1" to={ruta + item} >{item}</Link>
                 ))}

@@ -1,7 +1,7 @@
 import Modal from "./Modal"
 
 
-const Card = ({ item, index }) => {
+const Card = ({ item}) => {
 
 
     return (
@@ -14,7 +14,7 @@ const Card = ({ item, index }) => {
                     <div className="card-body text-center">
                         <h5>{item.title}</h5>
                         <p className="text-success">{item.brand}</p>
-                        <h5 className="text-danger">{item.price.toFixed(0).toLocaleString()}$</h5>
+                        <h5 className="text-danger">{item.price}$</h5>
                     </div>
                     <div className="card-footer text-center">
                         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target={`#${item.id}`}>
@@ -23,7 +23,7 @@ const Card = ({ item, index }) => {
                     </div>
                 </div>
             </div>
-            <Modal item={item} />
+            <Modal key={item} item={item} />
 
 
 
