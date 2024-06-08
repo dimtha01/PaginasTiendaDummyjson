@@ -14,18 +14,18 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Header/>
+        <Header />
         <Routes>
-          <Route path="/" element={<Inicio/>}/>
-          <Route path="/tienda" element={<Tienda/>}/>
-          <Route path="/laptop" element={<Laptop/>}/>
-          <Route path="/movil" element={<Movil/>}/>
-          <Route path="/contacto" element={<Contacto/>}/>
-          <Route path="/categorias/:id" element={<Categorias/>}/>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/tienda" element={<Tienda />} />
+          <Route path="/laptop" element={<Laptop />} />
+          <Route path="/movil" element={<Movil />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/categorias/:id" element={<Categorias />} />
           <Route path="/buscar" element={<Buscar />} />
-          <Route path="*" element={<Error404/>}/>
+          <Route path="*" element={<Error404 />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   )

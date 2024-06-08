@@ -1,8 +1,8 @@
 
-const Paginador = ({skip ,total}) => {
+const Paginador = () => {
     return (
         <>
-            
+
         </>
     )
 }

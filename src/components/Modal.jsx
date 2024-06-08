@@ -1,5 +1,5 @@
 
-const Modal = ({item}) => {
+const Modal = ({ item }) => {
     return (
         <>
             <div class="modal fade" id="exampleModal" id={item.id} tabindex="-1" aria-hidden="true">

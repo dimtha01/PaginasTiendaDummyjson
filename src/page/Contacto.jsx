@@ -4,8 +4,8 @@ import Formulario from '../components/Formulario'
 const Contacto = () => {
   return (
     <>
-      <Formulario/>
-    
+      <Formulario />
+
     </>
   )
 }
