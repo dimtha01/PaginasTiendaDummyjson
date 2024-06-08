@@ -15,7 +15,7 @@ const Error404 = () => {
                                 </h2>
                                 <h3 className="h2 mb-2">Oops! You're lost.</h3>
                                 <p className="mb-5">The page you are looking for was not found.</p>
-                                <Link to="/" className="btn bsb-btn-5xl btn-outline-danger rounded-pill px-5 fs-6 m-0" href="#!" role="button">Back to Home</Link>
+                                <Link to="/PaginasTiendaDummyjson" className="btn bsb-btn-5xl btn-outline-danger rounded-pill px-5 fs-6 m-0" href="#!" role="button">Back to Home</Link>
                             </div>
                         </div>
                     </div>
