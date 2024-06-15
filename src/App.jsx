@@ -12,20 +12,20 @@ import Buscar from "./page/Buscar"
 import { useState } from "react"
 
 const App = () => {
-  const [carrito, setCarrito] = useState(21,12)
+  const [carrito1, setCarrito1] =useState([])
   return (
     <>
       <BrowserRouter>
-        <Header carrito={carrito} setCarrito={setCarrito} />
+        <Header carrito1={carrito1} setCarrito1={setCarrito1} />
         <Routes>
-          <Route path="/PaginasTiendaDummyjson" element={<Inicio />} />
-          <Route path="/tienda" element={<Tienda />} />
-          <Route path="/laptop" element={<Laptop />} />
-          <Route path="/movil" element={<Movil />} />
+          <Route path="/PaginasTiendaDummyjson" element={<Inicio carrito1={carrito1} setCarrito1={setCarrito1} />} />
+          <Route path="/tienda" element={<Tienda carrito1={carrito1} setCarrito1={setCarrito1} />} />
+          <Route path="/laptop" element={<Laptop carrito1={carrito1} setCarrito1={setCarrito1} />} />
+          <Route path="/movil" element={<Movil carrito1={carrito1} setCarrito1={setCarrito1} />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/categorias/:id" element={<Categorias />} />
-          <Route path="/buscar" element={<Buscar />} />
-          <Route path="*" element={<Error404 />} />
+          <Route path="/categorias/:id" element={<Categorias carrito1={carrito1} setCarrito1={setCarrito1} />} />
+          <Route path="/buscar" element={<Buscar carrito1={carrito1} setCarrito1={setCarrito1} />} />
+          <Route path="*" element={<Error404 carrito1={carrito1} setCarrito1={setCarrito1} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

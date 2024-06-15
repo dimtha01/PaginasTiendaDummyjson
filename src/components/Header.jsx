@@ -18,6 +18,7 @@ const Header = ({ carrito, setCarrito }) => {
         navigate('/buscar', {
             state: inputValue,
         });
+        
 
     };
     return (
@@ -34,7 +35,7 @@ const Header = ({ carrito, setCarrito }) => {
                                 <Link to="/PaginasTiendaDummyjson" className="nav-link active" aria-current="page" href="#">Inicio</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/tienda" className="nav-link" href="#">Tienda {carrito}</Link>
+                                <Link to="/tienda" className="nav-link" href="#">Tienda</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/laptop" className="nav-link" href="#">Laptop</Link>
@@ -54,7 +55,7 @@ const Header = ({ carrito, setCarrito }) => {
                                 <Link to="/contacto" className="nav-link" href="#">Contacto</Link>
                             </li>
                             <li className="nav-item mx-4">
-                                <button className='btn btn-danger me-2' onClick={() => verCarrito()}>  <CartFill size={25} /> <span className="badge rounded-pill text-bg-dark">{carrito}</span></button>
+                                <button className='btn btn-danger me-2' onClick={() => verCarrito()}><CartFill size={25} /> <span className="badge rounded-pill text-bg-dark">{carrito}</span></button>
                             </li>
                         </ul>
 

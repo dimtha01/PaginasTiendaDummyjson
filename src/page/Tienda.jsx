@@ -4,7 +4,8 @@ import Boton from "../components/Boton";
 import Paginador from "../components/Paginador";
 const API = 'https://dummyjson.com/products?limit=20&skip=';
 
-const Tienda = () => {
+const Tienda = ({ carrito1, setCarrito1 }) => {
+    
     const [datos, setDatos] = useState([])
     const [skip, setSkip] = useState(0);
     const [total, setTotal] = useState(0);
@@ -31,7 +32,7 @@ const Tienda = () => {
                 <div className="row">
                     {datos && datos.map((item) => (
 
-                        <Card key={item.id} item={item} />
+                        <Card key={item.id} item={item} carrito1={carrito1} setCarrito1={setCarrito1} />
                     ))}
                     <div className="d-flex justify-content-evenly align-content-center  text-black mb-3 p-2 alert alert-dark">
                         <p className="lead m-0 text-light">Pagina {Math.floor(skip / 20) + 1} de {Math.ceil(total / 20)}</p>

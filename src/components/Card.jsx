@@ -1,9 +1,9 @@
 import Modal from "./Modal"
 
 
-const Card = ({ item}) => {
-
-
+const Card = ({ item, carrito1, setCarrito1 }) => {
+console.log("desde el card")
+console.log(carrito1)
     return (
         <>
             <div className="col-6 col-md-4 col-lg-3 col-xl-2 mb-4" >
@@ -23,7 +23,7 @@ const Card = ({ item}) => {
                     </div>
                 </div>
             </div>
-            <Modal key={item} item={item} />
+            <Modal key={item} item={item} carrito1={carrito1} setCarrito1={setCarrito1} />
 
 
 
