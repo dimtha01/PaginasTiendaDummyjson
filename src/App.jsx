@@ -9,12 +9,14 @@ import Movil from "./page/Movil"
 import Contacto from "./page/Contacto"
 import Categorias from "./page/Categorias"
 import Buscar from "./page/Buscar"
+import { useState } from "react"
 
 const App = () => {
+  const [carrito, setCarrito] = useState(21,12)
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <Header carrito={carrito} setCarrito={setCarrito} />
         <Routes>
           <Route path="/PaginasTiendaDummyjson" element={<Inicio />} />
           <Route path="/tienda" element={<Tienda />} />

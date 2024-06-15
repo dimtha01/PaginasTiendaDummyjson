@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom"
 import FiltroCategorias from "./FiltroCategorias"
 import { useState } from "react";
 import logo from '../assets/logo.jpg';
+import { CartFill } from 'react-bootstrap-icons';
 
-const Header = () => {
+
+const Header = ({ carrito, setCarrito }) => {
     const [inputValue, setInputValue] = useState('');
     const handleChange = (event) => {
         setInputValue(event.target.value);
@@ -32,7 +34,7 @@ const Header = () => {
                                 <Link to="/PaginasTiendaDummyjson" className="nav-link active" aria-current="page" href="#">Inicio</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/tienda" className="nav-link" href="#">Tienda</Link>
+                                <Link to="/tienda" className="nav-link" href="#">Tienda {carrito}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/laptop" className="nav-link" href="#">Laptop</Link>
@@ -51,7 +53,11 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link to="/contacto" className="nav-link" href="#">Contacto</Link>
                             </li>
+                            <li className="nav-item mx-4">
+                                <button className='btn btn-danger me-2' onClick={() => verCarrito()}>  <CartFill size={25} /> <span className="badge rounded-pill text-bg-dark">{carrito}</span></button>
+                            </li>
                         </ul>
+
                         <form className="d-flex" role="search" onSubmit={handleSubmit}>
                             <input value={inputValue} onChange={handleChange} className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
                             <button className="btn btn-outline-light" type="submit">Buscar</button>
