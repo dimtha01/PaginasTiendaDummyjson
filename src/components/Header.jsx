@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import logo from '../assets/logo.jpg';
 import { CartFill } from "react-bootstrap-icons";
 import Swal from "sweetalert2";
+import MostrarCarrito from "./MostrarCarrito";
 
 const Header = ({ carrito, setCarrito }) => {
     const [inputValue, setInputValue] = useState('');
@@ -38,19 +39,19 @@ const Header = ({ carrito, setCarrito }) => {
         let totalCantidad = 0;
         let totalPrecio = 0;
 
-        const carritoTabla = carrito.map((producto) => {
-            const subtotal = producto.price * producto.cant;
-            totalCantidad += producto.cant;
+        const carritoTabla = carrito.map((item) => {
+            const subtotal = item.price * item.cant;
+            totalCantidad += item.cant;
             totalPrecio += subtotal;
 
-            const precioFormateado = formatearMoneda(producto.price);
+            const precioFormateado = formatearMoneda(item.price);
             const subtotalFormateado = formatearMoneda(subtotal);
 
             return `
             <tr>
-            <td><img src="${producto.thumbnail}" alt="" class="imgCarrito"/> </td>
-            <td>${producto.title}</td>
-            <td>${producto.cant.toLocaleString("es", { useGrouping: true })}</td>
+            <td><img src="${item.thumbnail}" alt="" class="imgCarrito"/> </td>
+            <td>${item.title}</td>
+            <td>${item.cant.toLocaleString("es", { useGrouping: true })}</td>
             <td>${precioFormateado}</td>
             <td>${subtotalFormateado}</td>
             </tr>
@@ -126,6 +127,8 @@ const Header = ({ carrito, setCarrito }) => {
                             </li>
                             <li className="nav-item">
                                 <button className='btn btn-outline-warning me-2 position-relative' onClick={() => verCarrito()}>  <CartFill size={25} /> <span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-light">{total}</span></button>
+                                <button className="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><CartFill size={25} /> <span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-warning">{total}</span></button>
+
                             </li>
                         </ul>
                         <form className="d-flex" role="search" onSubmit={handleSubmit}>
@@ -135,6 +138,7 @@ const Header = ({ carrito, setCarrito }) => {
                     </div>
                 </div>
             </nav>
+            <MostrarCarrito />
         </>
     )
 }
