@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import Boton from "../components/Boton";
 const API = 'https://dummyjson.com/products/category/';
 
-const Categorias = () => {
+const Categorias = ({carrito, setCarrito}) => {
   const params = useParams()
   const [datos, setDatos] = useState([])
 
@@ -28,13 +28,14 @@ const Categorias = () => {
   return (
     <>
       <div className="container">
-        <h1 className="text-center py-3">{params.id} <span class="badge rounded-pill text-bg-danger">{datos.length}</span></h1>
-        <Boton />
+      <h1 className="text-center py-3 lead display-6 text-dark">{params.id} <span class="badge rounded-pill text-bg-dark text-light">{datos.length}</span></h1>
+      <Boton />
         <div className="row">
           {datos && datos.map((item) => (
-            <Card key={item.id} item={item} />
+            <Card key={item.id} item={item} carrito={carrito} setCarrito={setCarrito} />
           ))}
         </div>
+        
       </div>
     </>
   )

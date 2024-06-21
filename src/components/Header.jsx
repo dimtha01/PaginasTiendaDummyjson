@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
 import FiltroCategorias from "./FiltroCategorias"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from '../assets/logo.jpg';
+import { CartFill } from "react-bootstrap-icons";
+import Swal from "sweetalert2";
 
-const Header = () => {
+const Header = ({ carrito, setCarrito }) => {
     const [inputValue, setInputValue] = useState('');
     const handleChange = (event) => {
         setInputValue(event.target.value);
@@ -18,9 +20,80 @@ const Header = () => {
         });
 
     };
+    const [total, setTotal] = useState(0)
+    useEffect(() => {
+        setTotal(carrito.length)
+    }, [carrito]);
+
+    const formatearMoneda = (valor) => {
+        const resultado = valor.toLocaleString("es", {
+            style: "currency",
+            currency: "USD",
+            useGrouping: true,
+        });
+
+        return resultado.replace("US$", "");
+    };
+    const verCarrito = () => {
+        let totalCantidad = 0;
+        let totalPrecio = 0;
+
+        const carritoTabla = carrito.map((producto) => {
+            const subtotal = producto.price * producto.cant;
+            totalCantidad += producto.cant;
+            totalPrecio += subtotal;
+
+            const precioFormateado = formatearMoneda(producto.price);
+            const subtotalFormateado = formatearMoneda(subtotal);
+
+            return `
+            <tr>
+            <td><img src="${producto.thumbnail}" alt="" class="imgCarrito"/> </td>
+            <td>${producto.title}</td>
+            <td>${producto.cant.toLocaleString("es", { useGrouping: true })}</td>
+            <td>${precioFormateado}</td>
+            <td>${subtotalFormateado}</td>
+            </tr>
+        `;
+        }).join("");
+
+        const totalPrecioFormateado = formatearMoneda(totalPrecio);
+
+        const tablaHTML = `
+        <div class="text-center">
+            <table class="table table-striped table-bordered table-hover table-sm tablaCarrito" >
+            <thead class="table-dark">
+                <tr>
+                <th>Imagen</th>
+                <th>Título</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${carritoTabla}
+                <tr>
+                <td colspan="2"></td>
+                <td>${totalCantidad.toLocaleString("es", { useGrouping: true })}</td>
+                <td></td>
+                <td>${totalPrecioFormateado}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        `;
+
+        Swal.fire({
+            position: "top-center",
+            title: "Carrito",
+            html: tablaHTML,
+            width: "1440px", // Establece el ancho deseado aquí
+        });
+    }
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-black">
+            <nav className="navbar navbar-expand-lg bg-header">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#"><img src={logo} alt="" width={80} /></a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +123,9 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <Link to="/contacto" className="nav-link" href="#">Contacto</Link>
+                            </li>
+                            <li className="nav-item">
+                                <button className='btn btn-outline-warning me-2 position-relative' onClick={() => verCarrito()}>  <CartFill size={25} /> <span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-light">{total}</span></button>
                             </li>
                         </ul>
                         <form className="d-flex" role="search" onSubmit={handleSubmit}>

@@ -22,7 +22,7 @@ const Boton = () => {
         <>
             <div className="d-flex flex-wrap justify-content-center">
                 {datos && datos.map((item, index) => (
-                    <Link key={index} className="btn btn-outline-danger m-1" to={ruta + item} >{item}</Link>
+                    <Link key={index} className="btn btn-outline-dark m-1" to={ruta + item} >{item}</Link>
                 ))}
             </div>
         </>

@@ -1,0 +1,44 @@
+:root{
+    --body-color: #a89d00;
+    --Header-color:#0D0D0D;
+    --Footer-color:#000000;
+    --card-color:#000000;
+    --botone-color:#F2F2F2;
+
+}
+.bg{
+    background-color: var(--body-color);
+}
+.bg-header{
+    background-color: var(--Header-color);
+}
+
+.card {
+    transition: 0.6s;
+    box-shadow: 2px 2px 4px #2c2b2b;
+    border-radius: 3px;
+    background-color: var(--card-color);
+}
+
+.card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.card-header img {
+    object-fit: cover;
+    height: 350px;
+    /* Ajusta el valor de altura deseado */
+}
+
+.imgCarrito {
+    object-fit: cover;
+    height: 40px;
+    /* Ajusta el valor de altura deseado */
+    width: 60px;
+    /* Ajusta el valor de altura deseado */
+}
+
+.tablaCarrito {
+    font-size: 17px;
+}
