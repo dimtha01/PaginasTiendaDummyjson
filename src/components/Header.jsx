@@ -126,8 +126,8 @@ const Header = ({ carrito, setCarrito }) => {
                                 <Link to="/contacto" className="nav-link" href="#">Contacto</Link>
                             </li>
                             <li className="nav-item">
-                                <button className='btn btn-outline-warning me-2 position-relative' onClick={() => verCarrito()}>  <CartFill size={25} /> <span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-light">{total}</span></button>
-                                <button className="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><CartFill size={25} /> <span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-warning">{total}</span></button>
+                                <button className='btn btn-outline-warning me-2 position-relative' onClick={() => verCarrito()}>  <CartFill size={25} /> {total !== 0 && (<span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-light">{total}</span>)}</button>
+                                <button className="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><CartFill size={25} /> {total !== 0 && (<span className="position-absolute top-0 start-100 translate-middle badge text-dark rounded-pill bg-warning">{total}</span>)}</button>
 
                             </li>
                         </ul>
