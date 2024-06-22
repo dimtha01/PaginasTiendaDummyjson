@@ -2,14 +2,14 @@ import Modal from "./Modal"
 
 
 const Card = ({ item, carrito, setCarrito }) => {
-    const total = item.length;
+    const total = 1
+    
 
 
     return (
         <>
             <div className="col-6 col-md-4 col-lg-3 col-xl-2 mb-4 position-relative" >
-            {total !== 0 && (<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                    {total}
+                {total !== 0 && (<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
                 </span>)}
                 <div className="card h-100">
                     <div className="card-header p-0">
