@@ -124,7 +124,7 @@ const Modal = ({ item, carrito, setCarrito }) => {
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-md-6">
-                                    <img src={item.thumbnail} alt={item.title} width={720} className="img-fluid img-thumbnail rounded" />
+                                    <img src={item.images[2] || item.images[1] || item.images[0]} alt={item.title} width={720} className="img-fluid img-thumbnail rounded" />
                                 </div>
                                 <div className="col-md-6">
                                     <h2>{item.title}</h2>
@@ -135,17 +135,17 @@ const Modal = ({ item, carrito, setCarrito }) => {
                                         <b>Clasificación:</b> {item.rating}
                                     </p>
                                     <p className="lead small"><b>Descripción:</b> {item.description}</p>
-                                    <h2 className="text-danger"><b className='text-success'>Precio:</b> {item.price.toFixed(0).toLocaleString()}$</h2>
+                                    <h2 className="text-danger"><b className='text-success'>Precio:</b> {item.price}$</h2>
                                     <h5 className='text-success'>Comprar</h5>
                                     <div className='d-flex'>
                                         <h5 className='text-danger pt-1'><b>Cantidad : </b> </h5>
                                         <div className='d-flex justify-content-center mx-3 border-3 ' >
                                             <p className='p-1 text-light' type="button" onClick={() => disminuirCant()}>
-                                                <DashCircleFill  size={30} />
+                                                <DashCircleFill size={30} />
                                             </p>
                                             <h4 className='p-1'>{cantidad}</h4>
                                             <p className='p-1 text-warning' type="button" onClick={() => sumarCant()}>
-                                                <PlusSquareFill  size={30} />
+                                                <PlusSquareFill size={30} />
                                             </p>
                                         </div>
                                     </div>
